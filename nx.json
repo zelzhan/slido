@@ -28,6 +28,9 @@
     },
     "feature-book": {
       "tags": []
+    },
+    "feature-author": {
+      "tags": []
     }
   }
 }

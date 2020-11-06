@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@slido/feature-book": ["libs/feature-book/src/index.ts"]
+      "@slido/feature-book": ["libs/feature-book/src/index.ts"],
+      "@slido/feature-author": ["libs/feature-author/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
