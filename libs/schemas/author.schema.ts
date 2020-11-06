@@ -4,7 +4,10 @@ import { Document } from 'mongoose';
 @Schema()
 export class Author {
   @Prop({ required: true })
-  name: string;
+  firstName: string;
+
+  @Prop()
+  lastName: string;
 }
 
 export type AuthorDocument = Author & Document;

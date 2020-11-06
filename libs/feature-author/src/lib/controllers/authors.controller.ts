@@ -18,7 +18,7 @@ export class AuthorsController {
   }
 
   @Get(':id')
-  getAuthor(@Param('id') id: ObjectId) {
+  getAuthor(@Param('id') id: ObjectId) {   
     return this.service.find(id);
   }
 }
