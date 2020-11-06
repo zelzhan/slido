@@ -3,7 +3,7 @@ import { Document } from 'mongoose';
 
 @Schema()
 export class Author {
-  @Prop()
+  @Prop({ required: true })
   name: string;
 }
 
