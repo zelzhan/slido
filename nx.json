@@ -25,6 +25,9 @@
   "projects": {
     "book-management": {
       "tags": []
+    },
+    "feature-book": {
+      "tags": []
     }
   }
 }
