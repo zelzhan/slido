@@ -4,7 +4,7 @@ import { Transformers } from '../../../../utils/transformer';
 
 export class CreateBookDTO {
   name: string;
-  isbn: string;
+  isbn: number;
 
   @Transform(Transformers.toObjectId)
   author: ObjectId;
