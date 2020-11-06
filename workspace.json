@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "projects": {
+    "book-management": {
+      "root": "apps/book-management",
+      "sourceRoot": "apps/book-management/src",
+      "projectType": "application",
+      "prefix": "book-management",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/book-management",
+            "main": "apps/book-management/src/main.ts",
+            "tsConfig": "apps/book-management/tsconfig.app.json",
+            "assets": ["apps/book-management/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/book-management/src/environments/environment.ts",
+                  "with": "apps/book-management/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "book-management:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/book-management/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/book-management/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/nest"
+  },
+  "defaultProject": "book-management"
+}
