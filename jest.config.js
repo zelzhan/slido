@@ -4,4 +4,6 @@ module.exports = {
     '<rootDir>/libs/feature-book',
     '<rootDir>/libs/feature-author',
   ],
+  runner: 'jest-serial-runner'
 };
+
