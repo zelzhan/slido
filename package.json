@@ -6,7 +6,7 @@
     "nx": "nx",
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test",
+    "test": "nx test book-management && nx test feature-book && nx test feature-author",
     "lint": "nx workspace-lint && nx lint",
     "e2e": "nx e2e",
     "affected:apps": "nx affected:apps",
@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@nestjs/schematics": "^7.0.0",
-    "@nestjs/testing": "^7.0.0",
+    "@nestjs/testing": "^7.5.1",
     "@nrwl/cli": "10.3.2",
     "@nrwl/eslint-plugin-nx": "10.3.2",
     "@nrwl/jest": "10.3.2",
