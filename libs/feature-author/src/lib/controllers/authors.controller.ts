@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Get, Param } from '@nestjs/common';
+import { Controller, Post, Body, Get, Param, Delete } from '@nestjs/common';
 import { CreateAuthorDTO } from '../dtos/create-author.dto';
 import { AuthorsService } from '../services/authors.service';
 import { ObjectId } from 'mongodb';
@@ -18,7 +18,12 @@ export class AuthorsController {
   }
 
   @Get(':id')
-  getAuthor(@Param('id') id: ObjectId) {   
+  getAuthor(@Param('id') id: ObjectId) {
     return this.service.find(id);
+  }
+
+  @Delete(':id')
+  delete(@Param('id') id: ObjectId) {
+    return this.service.delete(id);
   }
 }

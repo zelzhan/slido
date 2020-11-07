@@ -7,7 +7,9 @@ import { ObjectId } from 'mongodb';
 
 @Injectable()
 export class AuthorsService {
-  constructor(@InjectModel('author') private authorModel: Model<AuthorDocument>) {}
+  constructor(
+    @InjectModel('author') private authorModel: Model<AuthorDocument>
+  ) {}
 
   async create(createAuthorDto: CreateAuthorDTO): Promise<Author> {
     const createdAuthor = new this.authorModel(createAuthorDto);
@@ -24,5 +26,8 @@ export class AuthorsService {
         _id: id,
       })
       .exec();
+  }
+  async delete(id: ObjectId): Promise<{ ok?: any; n?: any }> {
+    return this.authorModel.deleteOne({ _id: id });
   }
 }
