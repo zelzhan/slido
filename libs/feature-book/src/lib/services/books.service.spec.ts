@@ -7,7 +7,7 @@ import { ObjectId } from 'mongodb';
 import { getModelToken } from '@nestjs/mongoose';
 import { CreateBookDTO } from '../dtos/create-book.dto';
 
-describe('BooksController', () => {
+describe('book service', () => {
   let booksController: BooksController;
   let booksService: BooksService;
   let books: Book[];
