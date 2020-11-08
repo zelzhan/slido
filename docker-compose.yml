@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+    mongo:
+      image: mongo:4.2.6
+      ports:
+        - '27017:27017'
+      volumes:
+        - data-volume:/data/db
+    api:
+      build:
+          context: .
+          dockerfile: './apps/api/Dockerfile'
+
+      volumes:
+          - ./apps/api/src:/tmp/apps/book-management/src
+          - ./libs:/tmp/libs
+          - ./tsconfig.json:/tmp/tsconfig.json
+          - ./dist/apps/book-management:/tmp/dist/apps/book-management # Dist has to be mirrored to enable debugging
+          - ./dist/srv:/srv
+      ports:
+          - 3333:3333
+      depends_on:
+          - mongo
+
+volumes:
+  data-volume:

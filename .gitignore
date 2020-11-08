@@ -2,6 +2,7 @@
 /dist
 /tmp
 /out-tsc
+/mongo-volume
 
 # dependencies
 /node_modules
