@@ -5,13 +5,10 @@ import { Document } from 'mongoose';
 export class Author {
   @Prop({ required: true })
   firstName: string;
-
+  
   @Prop()
   lastName: string;
 }
 
-const author = SchemaFactory.createForClass(Author);
-author.index({ '$**': 'text' });
-
 export type AuthorDocument = Author & Document;
-export const AuthorSchema = author;
+export const AuthorSchema = SchemaFactory.createForClass(Author).index({ '$**': 'text' });
