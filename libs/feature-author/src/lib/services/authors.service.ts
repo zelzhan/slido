@@ -1,7 +1,8 @@
 import { Model } from 'mongoose';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Author, AuthorDocument } from '../../../../schemas/author.schema';
+import { AuthorDocument } from '../../../../schemas/author.schema';
+import { Author } from "../../../../schemas/author.schema";
 import { CreateAuthorDTO } from '../dtos/create-author.dto';
 import { ObjectId } from 'mongodb';
 
