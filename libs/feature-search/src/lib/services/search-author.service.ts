@@ -10,6 +10,13 @@ export class AuthorSearchService {
   ) {}
 
   async search(query: string): Promise<Author[]> {
-    return this.authorModel.find({ $text: { $search: query } });
+    return this.authorModel
+      .find({
+        $or: [
+          { firstName: { $regex: new RegExp(query, 'i') } },
+          { lastName: { $regex: new RegExp(query, 'i') } },
+        ],
+      })
+      .limit(10);
   }
 }
