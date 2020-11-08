@@ -1,5 +1,6 @@
 import { Controller, Get, Query } from '@nestjs/common';
-import { Search } from '../dtos/Search.dto';
+import { Search } from '../dtos/search.dto';
+import { AuthorSearchService } from '../services/search-author.service';
 
 @Controller('search/author')
 export class SearchAuthorController {
