@@ -14,6 +14,8 @@ export class Book {
   @Prop({ type: Types.ObjectId, ref: Author, required: true })
   author: ObjectID;
 }
+const book = SchemaFactory.createForClass(Book);
+book.index({ '$**': 'text' });
 
 export type BookDocument = Book & Document;
-export const BookSchema = SchemaFactory.createForClass(Book);
+export const BookSchema = book;

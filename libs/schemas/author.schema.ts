@@ -10,5 +10,8 @@ export class Author {
   lastName: string;
 }
 
+const author = SchemaFactory.createForClass(Author);
+author.index({ '$**': 'text' });
+
 export type AuthorDocument = Author & Document;
-export const AuthorSchema = SchemaFactory.createForClass(Author);
+export const AuthorSchema = author;
