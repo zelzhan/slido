@@ -1,33 +1,50 @@
 # Slido
 
-This project was generated using [Nx](https://nx.dev).
+## Swagger description of endpoints are here:
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+http://206.189.59.245/api
 
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
+You can play around with the endpoint and test the functionality
 
-## Adding capabilities to your workspace
+## Why this technology?
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+### Nest.js
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+Nest (NestJS) is a framework for building efficient, scalable Node.js server-side applications, built with and fully supports TypeScript.
+Under the hood it uses HTTP frameworks such as Express and Fastify.
 
-Below are our core plugins:
+In particular Nest allows to provide abstraction above the Node.js frameworks. It forces to write clean architecture far from the beginning of every application. 
+Using the architecture that Nest provides, it is easy to easy to "break" the application into microservices. 
 
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
+### nx/nrwl
 
-There are also many [community plugins](https://nx.dev/nx-community) you could add.
+There are a lot of pros and cons of using monorepo pattern. But the main advantages are:
+
+* Share and reuse code easier
+* Visibility to manage dependencies (e.g., if you make a change, what else will be impacted?).
+* You want to make atomic changes (e.g., one operation to make a change across multiple projects).
+* You want teams to collaborate more.
+* You want to make large-scale changes
+
+So, why particularly nx/nrwl? It is not only tool, but also the philosphy. It incapsulates the functionality to the libraries, which allows us to reuse them elsewhere (not only in the same application).
+Also it is perfect fit for the fullstack applications like Angular and Nestjs, because both use similar architecture and allows us to reuse modules in both frontend and backend. 
+
+
+### Typescript
+
+Explicit type declarations and easier to refactor. 
+
+### Mongodb with mongoose
+
+Skipping the fact that Mongo is horizontally scalable NoSQL database, it is perfect for the projects where requirements are changing fast. Therefore it might be perfect choice for startups, if there are not many relationships between tables. 
+
+### Jest
+
+One of the advantages of Jest is speed. Jest runs tests in parallel which makes running the whole test suite so much faster. Also, you've got the possibility to use “--watch” and only run the tests affected by your changes in the editor.
+
+### Swagger
+
+Allows engineers to get self-generated documentation for different platforms. Enables to write API documentation, design and describe new APIs, and edit the existing ones. 
 
 ## Generate an application
 
@@ -39,19 +56,11 @@ When using Nx, you can create multiple applications and libraries in the same wo
 
 ## Generate a library
 
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are sharable across libraries and applications. They can be imported from `@slido/mylib`.
+Run `nx g @nrwl/nest:lib my-lib` to generate a library.
 
 ## Development server
 
 Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
 
 ## Build
 
@@ -59,32 +68,12 @@ Run `nx build my-app` to build the project. The build artifacts will be stored i
 
 ## Running unit tests
 
+Run `npm test` to execute all tests
+
 Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
 
 Run `nx affected:test` to execute the unit tests affected by a change.
 
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
 ## Understand your workspace
 
 Run `nx dep-graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-## ☁ Nx Cloud
-
-### Computation Memoization in the Cloud
-
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
