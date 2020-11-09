@@ -2,7 +2,9 @@ import { Controller, Post, Body, Get, Param, Delete } from '@nestjs/common';
 import { CreateAuthorDTO } from '../dtos/create-author.dto';
 import { AuthorsService } from '../services/authors.service';
 import { ObjectId } from 'mongodb';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('author')
 @Controller('author')
 export class AuthorsController {
   constructor(private service: AuthorsService) {}

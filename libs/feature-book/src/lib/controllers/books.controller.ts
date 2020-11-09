@@ -11,7 +11,9 @@ import { CreateBookDTO } from '../dtos/create-book.dto';
 import { BooksService } from '../services/books.service';
 import { ObjectId } from 'mongodb';
 import { UpdateBookDTO } from '../dtos/update-book.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('book')
 @Controller('book')
 export class BooksController {
   constructor(private service: BooksService) {}
