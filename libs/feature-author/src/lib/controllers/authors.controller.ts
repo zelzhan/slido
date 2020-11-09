@@ -14,18 +14,18 @@ export class AuthorsController {
     return this.service.create(createAuthorDTO);
   }
 
-  @Get()
+  @Get('all')
   getAll() {
     return this.service.findAll();
   }
 
   @Get(':id')
-  getAuthor(@Param('id') id: ObjectId) {
+  getAuthor(@Param('id') id: string) {
     return this.service.find(id);
   }
 
   @Delete(':id')
-  delete(@Param('id') id: ObjectId) {
+  delete(@Param('id') id: string) {
     return this.service.delete(id);
   }
 }

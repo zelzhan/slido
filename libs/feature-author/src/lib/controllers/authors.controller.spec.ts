@@ -40,7 +40,7 @@ describe('Integration tests for authors feature', () => {
 
   it('/GET all authors', () => {
     return request(app.getHttpServer())
-      .get(`/author`)
+      .get(`/author/all`)
       .expect(HttpStatus.OK)
       .then(({ body }) => {
         assert(body.some((author) => author.id === id));

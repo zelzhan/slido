@@ -4,18 +4,17 @@ import { Transformers } from '../../../../utils/transformer';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class UpdateBookDTO {
-  @ApiProperty({
-    type: String,
-  })
-  @Transform(Transformers.toObjectId)
-  _id: ObjectId;
-
   @ApiProperty()
   name: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    default: Math.floor(Math.random() * 100000)
+  })
   isbn: number;
 
+  @ApiProperty({
+    type: String
+  })
   @Transform(Transformers.toObjectId)
-  author: ObjectId;
+  authorId: ObjectId;
 }

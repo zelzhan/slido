@@ -20,16 +20,16 @@ export class BooksService {
   }
 
   async update(
-    id: ObjectId,
-    { _id, name, isbn, author }: UpdateBookDTO
+    id: string,
+    { name, isbn, authorId }: UpdateBookDTO
   ): Promise<Book> {
     return this.bookModel.updateOne(
       { _id: id },
-      { _id: _id, name: name, isbn: isbn, author: author }
+      { _id: id, name: name, isbn: isbn, author: authorId }
     );
   }
 
-  async find(id: ObjectId): Promise<Book> {
+  async find(id: string): Promise<Book> {
     return this.bookModel
       .findOne({
         _id: id,
@@ -37,7 +37,7 @@ export class BooksService {
       .exec();
   }
 
-  async delete(id: ObjectId) {
+  async delete(id: string) {    
     return this.bookModel.deleteOne({ _id: id });
   }
 }

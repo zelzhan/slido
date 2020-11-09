@@ -7,9 +7,15 @@ export class CreateBookDTO {
   @ApiProperty()
   name: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    default: Math.floor(Math.random() * 100000),
+  })
   isbn: number;
 
+  @ApiProperty({
+    type: String,
+    default: new ObjectId(),
+  })
   @Transform(Transformers.toObjectId)
   author: ObjectId;
 }

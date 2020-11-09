@@ -21,14 +21,14 @@ export class AuthorsService {
     return this.authorModel.find().exec();
   }
 
-  async find(id: ObjectId): Promise<Author> {
+  async find(id: string): Promise<Author> {
     return this.authorModel
       .findOne({
         _id: id,
       })
       .exec();
   }
-  async delete(id: ObjectId): Promise<{ ok?: any; n?: any }> {
+  async delete(id: string): Promise<{ ok?: any; n?: any }> {
     return this.authorModel.deleteOne({ _id: id });
   }
 }

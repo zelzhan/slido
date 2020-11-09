@@ -10,7 +10,6 @@ export class SearchBookController {
   constructor(private service: BooksSearchService) {}
 
   @Get()
-  @ApiQuery({ name: 'search', type: Search })
   async create(@Query() { search }: Search) {
     return this.service.search(search);
   }

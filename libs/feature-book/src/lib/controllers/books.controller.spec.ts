@@ -41,7 +41,7 @@ describe('Integration tests for books feature', () => {
 
   it('/GET all books', () => {
     return request(app.getHttpServer())
-      .get(`/book`)
+      .get(`/book/all`)
       .expect(HttpStatus.OK)
       .then(({ body }) => {
         assert(body.some((book) => book.id === id));
