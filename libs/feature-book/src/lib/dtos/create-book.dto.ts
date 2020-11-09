@@ -13,9 +13,9 @@ export class CreateBookDTO {
   isbn: number;
 
   @ApiProperty({
-    type: String,
-    default: new ObjectId(),
+    type: [String],
+    default: [new ObjectId()],
   })
   @Transform(Transformers.toObjectId)
-  author: ObjectId;
+  authors: ObjectId[];
 }

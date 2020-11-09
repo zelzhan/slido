@@ -11,8 +11,8 @@ export class Book {
   @Prop()
   isbn: number;
 
-  @Prop({ type: Types.ObjectId, ref: Author, required: true })
-  author: ObjectID;
+  @Prop({ type: [Types.ObjectId], ref: Author, required: true })
+  authors: ObjectID[];
 }
 
 export type BookDocument = Book & Document;

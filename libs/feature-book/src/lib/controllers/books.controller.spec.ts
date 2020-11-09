@@ -29,7 +29,7 @@ describe('Integration tests for books feature', () => {
     const book: CreateBookDTO = {
       name: 'Some book',
       isbn: 123123,
-      author: Types.ObjectId(),
+      authors: [Types.ObjectId()],
     };
     request(app.getHttpServer())
       .post('/book')  

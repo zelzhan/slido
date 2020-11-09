@@ -31,17 +31,17 @@ describe('book service', () => {
       {
         name: 'Sherlok',
         isbn: 123345,
-        author: Types.ObjectId(),
+        authors: [Types.ObjectId()],
       },
       {
         name: 'Julianna',
         isbn: 1231345,
-        author: Types.ObjectId(),
+        authors: [Types.ObjectId()],
       },
       {
         name: 'Some book',
         isbn: 123351245,
-        author: Types.ObjectId(),
+        authors: [Types.ObjectId()],
       },
     ];
   });
@@ -61,7 +61,7 @@ describe('book service', () => {
       const book: CreateBookDTO = {
         name: 'some name',
         isbn: 12345,
-        author: new ObjectId(),
+        authors: [new ObjectId()],
       };
 
       jest
