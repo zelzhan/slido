@@ -5,9 +5,6 @@ import { FeatureBookModule } from '@slido/feature-book';
 import { FeatureAuthorModule } from '@slido/feature-author';
 import { FeatureSearchModule } from '@slido/feature-search';
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-
 @Module({
   imports: [
     MongooseModule.forRoot('mongodb://localhost/slido'),
@@ -15,7 +12,7 @@ import { AppService } from './app.service';
     FeatureAuthorModule,
     FeatureSearchModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

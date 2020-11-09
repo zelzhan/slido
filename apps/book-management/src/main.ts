@@ -12,21 +12,19 @@ import { AppModule } from './app/app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const globalPrefix = 'api';
 
   const options = new DocumentBuilder()
     .setTitle('Book Management system for Slido')
     .setDescription('API description')
     .setVersion('1.0')
     .build();
-  
-  const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup(globalPrefix, app, document);
 
-  app.setGlobalPrefix(globalPrefix);
+  const document = SwaggerModule.createDocument(app, options);
+  SwaggerModule.setup('api', app, document);
+
   const port = process.env.PORT || 3333;
   await app.listen(port, () => {
-    Logger.log('Listening at http://localhost:' + port + '/' + globalPrefix);
+    Logger.log('Listening at http://localhost:' + port + '/');
   });
 }
 
